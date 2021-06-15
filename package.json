@@ -66,8 +66,7 @@
   ],
   "jest": {
     "testEnvironment": "node",
-    "modulePathIgnorePatterns": [
-    ],
+    "modulePathIgnorePatterns": [],
     "coverageThreshold": {
       "global": {
         "statements": 100
@@ -145,6 +144,7 @@
     "version": "0.10.2"
   },
   "dependencies": {
-    "ansi-colors": "^4.1.1"
+    "ansi-colors": "^4.1.1",
+    "color-support": "^1.1.3"
   }
 }

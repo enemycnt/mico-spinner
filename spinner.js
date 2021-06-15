@@ -1,11 +1,17 @@
 const process = require('process')
+const colorSupport = require('color-support')
 const c = require('ansi-colors');
 
 const spinnersList = require('./spinnerAnimation')
 const logSymbols = require('./logSymbols')
 const {show: showCursor, hide: hideCursor} = require('./cursor')
 
-const std = process.stderr
+c.enabled = colorSupport.hasBasic
+const OUTPUT_STREAM = {
+  1: process.stdout,
+  2: process.stderr
+}
+const std = OUTPUT_STREAM[colorSupport.level]
 
 function Spinner(textStr = '') {
   let text = textStr
