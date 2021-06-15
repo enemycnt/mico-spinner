@@ -12,7 +12,7 @@ const OUTPUT_STREAM = {
   1: process.stdout,
   2: process.stderr
 }
-const std = process.stderr
+const std = process.stdout
 
 function Spinner(textStr = '') {
   let text = textStr
