@@ -1,3 +1,5 @@
+const process = require('process')
+
 function isInteractive({ stream = process.stdout } = {}) {
   return Boolean(
     stream &&
