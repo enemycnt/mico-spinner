@@ -1,4 +1,5 @@
 const process = require('process')
+const readline = require('readline')
 const colorSupport = require('color-support')
 const c = require('ansi-colors');
 
@@ -23,7 +24,7 @@ function Spinner(textStr = '') {
     stopAndPrint({ color, symbol }) {
       clearInterval(this.timer)
       let colorFn = c[color]
-      std.clearLine()
+      readline.clearLine(std)
       std.write(`${colorFn(symbol)} ${this.text}\n`)
 
       showCursor()
@@ -53,10 +54,10 @@ function Spinner(textStr = '') {
         index = 0
         line = spinners[index]
       }
-      std.clearLine()
+      readline.clearLine(std)
       std.write(`${c.yellow(line)} ${this.text}`)
 
-      std.cursorTo(0)
+      readline.cursorTo(std, 0)
 
       return index + 1
     },
@@ -72,8 +73,3 @@ function Spinner(textStr = '') {
 }
 
 module.exports = Spinner
-// const spinner = Spinner('Loooool')
-// spinner.start()
-// setTimeout(() => [
-//   spinner.fail()
-// ], 3000)
