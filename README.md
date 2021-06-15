@@ -1,10 +1,11 @@
 # mico-spinner
 
-Minimal spinner for nextjs
+Minimal spinner for nodejs
 
 ### Built With
 
 * [ansi-colors](https://github.com/doowb/ansi-colors)
+* [color-support](https://github.com/isaacs/color-support)
 
 ### Prerequisites
 
