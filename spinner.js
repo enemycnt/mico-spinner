@@ -11,7 +11,7 @@ const OUTPUT_STREAM = {
   1: process.stdout,
   2: process.stderr
 }
-const std = OUTPUT_STREAM[colorSupport.level]
+const std = process.stderr
 
 function Spinner(textStr = '') {
   let text = textStr
