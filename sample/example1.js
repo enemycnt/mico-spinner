@@ -1,4 +1,4 @@
-const Spinner = require('../spinner')
+const Spinner = require('../')
 
 let spinner = Spinner('Loading').start()
 setTimeout(() => {

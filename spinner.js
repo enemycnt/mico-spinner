@@ -12,7 +12,7 @@ const OUTPUT_STREAM = {
   1: process.stdout,
   2: process.stderr
 }
-const std = process.stdout
+const std = process.stderr
 
 function Spinner(textStr = '') {
   let text = textStr
@@ -25,6 +25,8 @@ function Spinner(textStr = '') {
       clearInterval(this.timer)
       let colorFn = c[color]
       readline.clearLine(std)
+      readline.cursorTo(std, 0)
+
       std.write(`${colorFn(symbol)} ${this.text}\n`)
 
       showCursor()
@@ -64,7 +66,7 @@ function Spinner(textStr = '') {
     stop() {
       clearInterval(this.timer)
 
-      std.clearLine()
+      readline.clearLine(std)
 
       showCursor()
       return this
