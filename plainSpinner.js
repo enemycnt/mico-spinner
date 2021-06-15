@@ -6,7 +6,7 @@ const c = require('ansi-colors');
 
 const logSymbols = require('./logSymbols')
 
-c.enabled = colorSupport.hasBasic
+c.enabled = process.env.FORCE_COLOR || colorSupport.hasBasic
 
 const std = process.stdout
 
