@@ -1,4 +1,4 @@
-const { red, green, yellow } = require('ansi-colors');
+const { red, yellow } = require('ansi-colors');
 
 const logSymbols = require('../logSymbols')
 const Spinner = require('../spinner')
@@ -13,6 +13,12 @@ jest.mock('process', () => ({
     write: jest.fn(),
     cursorTo: jest.fn()
   }
+}))
+
+jest.mock('readline', () => ({
+  clearLine: jest.fn(),
+  write: jest.fn(),
+  cursorTo: jest.fn()
 }))
 
 describe('spinner', () => {
@@ -56,24 +62,26 @@ describe('spinner', () => {
 
   it('scroll to last animation', () => {
     let process = require('process')
+    let readline = require('readline')
     let _Spinner = require('../spinner')
 
     let spinner = _Spinner(testString)
     spinner.start()
     jest.advanceTimersByTime(1000)
 
-    expect(process.stderr.clearLine).toHaveBeenCalledTimes(10)
-    expect(process.stderr.cursorTo).toHaveBeenCalledWith(0)
+    expect(readline.clearLine).toHaveBeenCalledTimes(10)
+    expect(readline.cursorTo).toHaveBeenCalledWith(process.stderr, 0)
     spinner.stop()
   })
 
   it('stop and print something generic', () => {
     let process = require('process')
+    let readline = require('readline')
     let _Spinner = require('../spinner')
 
     let spinner = _Spinner(testString)
     spinner.stopAndPrint({ color: 'red', symbol: 'X' })
-    expect(process.stderr.clearLine).toHaveBeenCalledWith()
+    expect(readline.clearLine).toHaveBeenCalledWith(process.stderr,)
     expect(process.stderr.write).toHaveBeenCalledWith(`${red('X')} LoL!\n`)
   })
 
