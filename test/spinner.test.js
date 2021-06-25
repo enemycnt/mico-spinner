@@ -82,6 +82,16 @@ describe('spinner', () => {
     expect(process.stderr.write).toHaveBeenCalledWith(`${red('X')} LoL!\n`)
   })
 
+  it('allow custom stream', () => {
+    let readline = require('readline')
+    let _Spinner = require('../spinner')
+    let stream = { write: jest.fn() }
+    let spinner = _Spinner(testString, { stream })
+    spinner.stopAndPrint({ color: 'red', symbol: 'X' })
+    expect(readline.clearLine).toHaveBeenCalledWith(stream)
+    expect(stream.write).toHaveBeenCalledWith(`${red('X')} LoL!\n`)
+  })
+
   it('#fail', () => {
     let spinner = Spinner(testString)
     let spy = jest.spyOn(spinner, 'stopAndPrint')

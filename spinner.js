@@ -6,11 +6,11 @@ const spinnersList = require('./spinnerAnimation')
 const logSymbols = require('./logSymbols')
 const { show: showCursor, hide: hideCursor } = require('./cursor')
 
-const std = process.stderr
-
-function Spinner(textStr = '') {
+function Spinner(textStr = '', opts = {}) {
   let text = textStr
   let timer = null
+
+  let stream = opts.stream || process.stderr
 
   return {
     text,
@@ -18,10 +18,10 @@ function Spinner(textStr = '') {
     stopAndPrint({ color, symbol }) {
       clearInterval(this.timer)
       let colorFn = c[color]
-      readline.clearLine(std)
-      readline.cursorTo(std, 0)
+      readline.clearLine(stream)
+      readline.cursorTo(stream, 0)
 
-      std.write(`${colorFn(symbol)} ${this.text}\n`)
+      stream.write(`${colorFn(symbol)} ${this.text}\n`)
 
       showCursor()
       return this
@@ -50,17 +50,17 @@ function Spinner(textStr = '') {
         index = 0
         line = spinners[index]
       }
-      readline.clearLine(std)
-      std.write(`${c.green(line)} ${this.text}`)
+      readline.clearLine(stream)
+      stream.write(`${c.green(line)} ${this.text}`)
 
-      readline.cursorTo(std, 0)
+      readline.cursorTo(stream, 0)
 
       return index + 1
     },
     stop() {
       clearInterval(this.timer)
 
-      readline.clearLine(std)
+      readline.clearLine(stream)
 
       showCursor()
       return this
