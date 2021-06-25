@@ -1,4 +1,4 @@
-const { red, yellow } = require('ansi-colors')
+const { red, green } = require('colorette')
 
 const logSymbols = require('../logSymbols')
 const Spinner = require('../spinner')
@@ -53,7 +53,7 @@ describe('spinner', () => {
     let spinner = _Spinner(testString)
     spinner.start()
     jest.advanceTimersByTime(1100)
-    expect(process.stderr.write).toHaveBeenLastCalledWith(`${yellow('⠋')} LoL!`)
+    expect(process.stderr.write).toHaveBeenLastCalledWith(`${green('⠋')} LoL!`)
     spinner.stop()
   })
 

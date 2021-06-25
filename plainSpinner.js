@@ -1,11 +1,8 @@
 const process = require('process')
 const readline = require('readline')
-const colorSupport = require('color-support')
-const c = require('ansi-colors')
+const c = require('colorette')
 
 const logSymbols = require('./logSymbols')
-
-c.enabled = process.env.FORCE_COLOR || colorSupport.hasBasic
 
 function Spinner(textStr = '', opts = {}) {
   let text = textStr
