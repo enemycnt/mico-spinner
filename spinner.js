@@ -1,17 +1,11 @@
 const process = require('process')
 const readline = require('readline')
-const colorSupport = require('color-support')
-const c = require('ansi-colors');
+const c = require('colorette')
 
 const spinnersList = require('./spinnerAnimation')
 const logSymbols = require('./logSymbols')
-const {show: showCursor, hide: hideCursor} = require('./cursor')
+const { show: showCursor, hide: hideCursor } = require('./cursor')
 
-c.enabled = colorSupport.hasBasic
-const OUTPUT_STREAM = {
-  1: process.stdout,
-  2: process.stderr
-}
 const std = process.stderr
 
 function Spinner(textStr = '') {
@@ -57,7 +51,7 @@ function Spinner(textStr = '') {
         line = spinners[index]
       }
       readline.clearLine(std)
-      std.write(`${c.yellow(line)} ${this.text}`)
+      std.write(`${c.green(line)} ${this.text}`)
 
       readline.cursorTo(std, 0)
 
