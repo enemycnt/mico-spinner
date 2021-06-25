@@ -1,6 +1,6 @@
 {
   "name": "mico-spinner",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "minimalistic spinner for nodejs projects",
   "main": "index.js",
   "author": "Nikolay Topkaridi",
@@ -70,7 +70,7 @@
     "modulePathIgnorePatterns": [],
     "coverageThreshold": {
       "global": {
-        "statements": 100
+        "statements": 90
       }
     }
   },
