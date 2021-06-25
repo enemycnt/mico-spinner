@@ -4,8 +4,7 @@ Minimal spinner for nodejs
 
 ### Built With
 
-* [ansi-colors](https://github.com/doowb/ansi-colors)
-* [color-support](https://github.com/isaacs/color-support)
+* [colorette](https://github.com/jorgebucaran/colorette)
 
 ### Prerequisites
 
