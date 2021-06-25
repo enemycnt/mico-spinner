@@ -1,25 +1,24 @@
-
 const process = require('process')
 const readline = require('readline')
 const colorSupport = require('color-support')
-const c = require('ansi-colors');
+const c = require('ansi-colors')
 
 const logSymbols = require('./logSymbols')
 
 c.enabled = process.env.FORCE_COLOR || colorSupport.hasBasic
 
-const std = process.stdout
-
-function Spinner(textStr = '') {
+function Spinner(textStr = '', opts = {}) {
   let text = textStr
   let timer = null
+
+  let stream = opts.stream || process.stderr
 
   return {
     text,
     timer,
     stopAndPrint({ color, symbol }) {
       let colorFn = c[color]
-      std.write(`${colorFn(symbol)} ${this.text}\n`)
+      stream.write(`${colorFn(symbol)} ${this.text}\n`)
       return this
     },
     fail() {
@@ -29,11 +28,11 @@ function Spinner(textStr = '') {
       return this.stopAndPrint({ color: 'green', symbol: logSymbols.success })
     },
     start() {
-      std.write(`${c.yellow('-')} ${this.text}\n`)
+      stream.write(`${c.yellow('-')} ${this.text}\n`)
       return this
     },
     stop() {
-      readline.clearLine(std)
+      readline.clearLine(stream)
 
       return this
     }
