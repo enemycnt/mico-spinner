@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Nikolay Topkaridi",
   "license": "MIT",
+  "repository": "enemycnt/mico-spinner",
   "scripts": {
     "test": "jest --coverage --forceExit && eslint ."
   },
