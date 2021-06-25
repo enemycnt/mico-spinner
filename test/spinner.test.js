@@ -1,8 +1,7 @@
-const { red, yellow } = require('ansi-colors');
+const { red, green } = require('colorette')
 
 const logSymbols = require('../logSymbols')
 const Spinner = require('../spinner')
-
 
 jest.useFakeTimers()
 const testString = 'LoL!'
@@ -54,9 +53,7 @@ describe('spinner', () => {
     let spinner = _Spinner(testString)
     spinner.start()
     jest.advanceTimersByTime(1100)
-    expect(process.stderr.write).toHaveBeenLastCalledWith(
-      `${yellow('⠋')} LoL!`
-    )
+    expect(process.stderr.write).toHaveBeenLastCalledWith(`${green('⠋')} LoL!`)
     spinner.stop()
   })
 
@@ -81,7 +78,7 @@ describe('spinner', () => {
 
     let spinner = _Spinner(testString)
     spinner.stopAndPrint({ color: 'red', symbol: 'X' })
-    expect(readline.clearLine).toHaveBeenCalledWith(process.stderr,)
+    expect(readline.clearLine).toHaveBeenCalledWith(process.stderr)
     expect(process.stderr.write).toHaveBeenCalledWith(`${red('X')} LoL!\n`)
   })
 
@@ -96,6 +93,9 @@ describe('spinner', () => {
     let spinner = Spinner(testString)
     let spy = jest.spyOn(spinner, 'stopAndPrint')
     spinner.succeed()
-    expect(spy).toHaveBeenCalledWith({ color: 'green', symbol: logSymbols.success })
+    expect(spy).toHaveBeenCalledWith({
+      color: 'green',
+      symbol: logSymbols.success
+    })
   })
 })
