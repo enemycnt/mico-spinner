@@ -1,6 +1,6 @@
 {
   "name": "mico-spinner",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "minimalistic spinner for nodejs projects",
   "main": "index.js",
   "author": "Nikolay Topkaridi",
