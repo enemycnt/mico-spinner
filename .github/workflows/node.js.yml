@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: yarn test
       - name: Run sample
-        run: node sample/example1.js
+        run: node samples/example1.js
   build:
 
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
     - name: Run unit tests
       run: npx jest
     - name: Test sample
-      run: node sample/example1.js
+      run: node samples/example1.js
