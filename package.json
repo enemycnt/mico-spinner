@@ -7,7 +7,8 @@
   "license": "MIT",
   "repository": "enemycnt/mico-spinner",
   "scripts": {
-    "test": "jest --coverage --forceExit && eslint ."
+    "test": "jest --coverage --forceExit && eslint .",
+    "record-terminal-screenshot": "termtosvg terminal-screenshot.svg -c='./scripts/animation.sh' -g=24x10 -t window_frame"
   },
   "devDependencies": {
     "@logux/eslint-config": "^45.4.4",
@@ -137,7 +138,10 @@
       "PnP",
       "ES",
       "GitHub",
-      "modifyWebpackConfig"
+      "modifyWebpackConfig",
+      "colorette",
+      "mico-spinner",
+      "mico"
     ]
   },
   "sharec": {
