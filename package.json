@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "minimalistic spinner for nodejs projects",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "author": "Nikolay Topkaridi",
   "license": "MIT",
   "repository": "enemycnt/mico-spinner",
@@ -30,6 +31,7 @@
     "prettier": "^2.3.1",
     "print-snapshots": "^0.3.2",
     "simple-git-hooks": "^2.4.1",
+    "typescript": "^4.3.4",
     "yaspeller": "^7.0.0"
   },
   "eslintConfig": {
