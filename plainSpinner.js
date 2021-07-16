@@ -6,16 +6,14 @@ const logSymbols = require('./logSymbols')
 
 function Spinner(textStr = '', opts = {}) {
   let text = textStr
-  let timer = null
 
   let stream = opts.stream || process.stderr
 
   return {
     text,
-    timer,
     stopAndPrint({ color, symbol }) {
       let colorFn = c[color]
-      stream.write(`${colorFn(symbol)} ${this.text}\n`)
+      stream.write(`${colorFn(symbol)} ${text}\n`)
       return this
     },
     fail() {
@@ -25,7 +23,7 @@ function Spinner(textStr = '', opts = {}) {
       return this.stopAndPrint({ color: 'green', symbol: logSymbols.success })
     },
     start() {
-      stream.write(`${c.yellow('-')} ${this.text}\n`)
+      stream.write(`${c.yellow('-')} ${text}\n`)
       return this
     },
     stop() {
