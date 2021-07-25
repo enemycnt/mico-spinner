@@ -4,3 +4,6 @@ test/
 coverage/
 samples/
 *.tgz
+CHANGELOG.md
+scripts/
+terminal-screenshot.svg
