@@ -2,6 +2,9 @@ const isInteractive = require('./isInteractive')
 const Spinner = require('./spinner')
 const PlainSpinner = require('./plainSpinner')
 
-let spinnerFunction = isInteractive() ? Spinner : PlainSpinner
+const spinnerFactory = function (options) {
+  let SpinnerFunction = isInteractive() ? Spinner : PlainSpinner
+  return new SpinnerFunction(options)
+}
 
-module.exports = spinnerFunction
+module.exports = spinnerFactory

@@ -1,8 +1,9 @@
 {
   "name": "mico-spinner",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "minimalistic spinner for nodejs projects",
   "main": "index.js",
+  "types": "index.d.ts",
   "author": "Nikolay Topkaridi",
   "license": "MIT",
   "repository": "enemycnt/mico-spinner",
@@ -30,6 +31,7 @@
     "prettier": "^2.3.1",
     "print-snapshots": "^0.3.2",
     "simple-git-hooks": "^2.4.1",
+    "typescript": "^4.3.4",
     "yaspeller": "^7.0.0"
   },
   "eslintConfig": {
@@ -64,11 +66,12 @@
   },
   "eslintIgnore": [
     "node_modules",
-    "**/errors.ts"
+    "**/errors.ts",
+    "index.d.ts"
   ],
   "jest": {
     "testEnvironment": "node",
-    "modulePathIgnorePatterns": [],
+    "modulePathIgnorePatterns": ["./samples/", "./dist"],
     "coverageThreshold": {
       "global": {
         "statements": 90
@@ -141,7 +144,8 @@
       "modifyWebpackConfig",
       "colorette",
       "mico-spinner",
-      "mico"
+      "mico",
+      "Minimalistic"
     ]
   },
   "sharec": {

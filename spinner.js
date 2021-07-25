@@ -14,14 +14,13 @@ function Spinner(textStr = '', opts = {}) {
 
   return {
     text,
-    timer,
     stopAndPrint({ color, symbol }) {
-      clearInterval(this.timer)
+      clearInterval(timer)
       let colorFn = c[color]
       readline.clearLine(stream)
       readline.cursorTo(stream, 0)
 
-      stream.write(`${colorFn(symbol)} ${this.text}\n`)
+      stream.write(`${colorFn(symbol)} ${text}\n`)
 
       showCursor()
       return this
@@ -38,7 +37,7 @@ function Spinner(textStr = '', opts = {}) {
       let spinners = spinnersList
       let index = 0
 
-      this.timer = setInterval(() => {
+      timer = setInterval(() => {
         index = this.intervalCallback(index, spinners)
       }, 100)
       return this
@@ -51,14 +50,14 @@ function Spinner(textStr = '', opts = {}) {
         line = spinners[index]
       }
       readline.clearLine(stream)
-      stream.write(`${c.green(line)} ${this.text}`)
+      stream.write(`${c.green(line)} ${text}`)
 
       readline.cursorTo(stream, 0)
 
       return index + 1
     },
     stop() {
-      clearInterval(this.timer)
+      clearInterval(timer)
 
       readline.clearLine(stream)
 
