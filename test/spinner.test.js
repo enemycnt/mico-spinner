@@ -1,4 +1,4 @@
-const { red, green } = require('colorette')
+const { red, green } = require('nanocolors')
 
 const logSymbols = require('../logSymbols')
 const Spinner = require('../spinner')

@@ -1,6 +1,6 @@
 const process = require('process')
 const readline = require('readline')
-const c = require('colorette')
+const c = require('nanocolors')
 
 const spinnersList = require('./spinnerAnimation')
 const logSymbols = require('./logSymbols')

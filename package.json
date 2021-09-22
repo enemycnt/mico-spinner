@@ -71,7 +71,10 @@
   ],
   "jest": {
     "testEnvironment": "node",
-    "modulePathIgnorePatterns": ["./samples/", "./dist"],
+    "modulePathIgnorePatterns": [
+      "./samples/",
+      "./dist"
+    ],
     "coverageThreshold": {
       "global": {
         "statements": 90
@@ -142,7 +145,6 @@
       "ES",
       "GitHub",
       "modifyWebpackConfig",
-      "colorette",
       "mico-spinner",
       "mico",
       "Minimalistic"
@@ -153,6 +155,6 @@
     "version": "0.10.2"
   },
   "dependencies": {
-    "colorette": "^1.2.2"
+    "nanocolors": "^0.1.1"
   }
 }
