@@ -1,4 +1,4 @@
-const { red, green } = require('nanocolors')
+const { red, green } = require('picocolors')
 
 const logSymbols = require('../logSymbols')
 const Spinner = require('../spinner')
