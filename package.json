@@ -149,7 +149,8 @@
       "mico",
       "Minimalistic",
       "nanocolors",
-      "colorette"
+      "colorette",
+      "pico"
     ]
   },
   "sharec": {
@@ -157,6 +158,6 @@
     "version": "0.10.2"
   },
   "dependencies": {
-    "nanocolors": "^0.1.1"
+    "picocolors": "^0.2.0"
   }
 }
