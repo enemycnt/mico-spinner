@@ -1,5 +1,7 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
+## 1.4.0
+* Replaced nanocolors with picocolors
 ## 1.3.0
 * Replaced colorette with nanocolors
 ## 1.2.2
