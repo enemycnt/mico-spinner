@@ -22,3 +22,6 @@ try {
   console.error(e.stack)
 }
 ```
+
+### Similar projects
+- [Nano Spinner](https://github.com/usmanyunusov/nanospinner)
